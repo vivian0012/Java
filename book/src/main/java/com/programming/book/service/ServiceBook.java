@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ServiceBook {
@@ -30,15 +31,15 @@ public class ServiceBook {
     }
 
     // UPDATE
-    public ModelBook updateObj(ModelBook newObj, Long idObj){
-        ModelBook oldObj = repositoryBook.getReferenceById(idObj);
-        UpdateData(oldObj, newObj);
-        return oldObj;
+    public ModelBook updateObj(ModelBook oldObj, Long id) {
+            ModelBook newObj = repositoryBook.findById(id).get();
+            DataUpdate(newObj, oldObj);
+            return newObj;
+
     }
-    private void UpdateData(ModelBook oldObj, ModelBook newObj) {
-        oldObj.setName(newObj.getName());
-        oldObj.setDescription(newObj.getDescription());
-        oldObj.setLinkToSell(newObj.getLinkToSell());
+    private void DataUpdate(ModelBook newObj, ModelBook oldObj) {
+        newObj.setName(oldObj.getName());
+        newObj.setDescription(oldObj.getDescription());
     }
 
     // DELETE BY ID

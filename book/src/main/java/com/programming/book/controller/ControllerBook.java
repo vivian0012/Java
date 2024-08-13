@@ -26,7 +26,7 @@ public class ControllerBook {
     }
 
     // READ BY ID
-    @GetMapping("/book/readById/{id}")
+        @GetMapping("/book/readById/{id}")
     public ResponseEntity<ModelBook> readId(@PathVariable Long id){
         ModelBook idModelBook = serviceBook.readById(id);
         return ResponseEntity.ok().body(idModelBook);
@@ -40,7 +40,7 @@ public class ControllerBook {
     }
 
     // UPDATE OBJ
-    @PutMapping("/book/updateObj/{id}")
+        @PutMapping("/book/updateObj/{id}")
     public ResponseEntity<ModelBook> update(@RequestBody ModelBook objBook, @PathVariable Long id){
         ModelBook modelBook = serviceBook.updateObj(objBook, id);
         return ResponseEntity.ok().body(modelBook);
