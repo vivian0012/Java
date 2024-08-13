@@ -2,12 +2,11 @@ package com.programming.book.model;
 
 import jakarta.persistence.*;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_books")
-public class EntityBook implements Serializable {
+public class ModelBook implements Serializable {
 
     private static final long SerialUIDVersion = 1L;
 
@@ -18,9 +17,9 @@ public class EntityBook implements Serializable {
     private String description;
     private String linkToSell;
 
-    public EntityBook(){}
+    public ModelBook(){}
 
-    public EntityBook(Long idBook, String name, String description, String linkToSell) {
+    public ModelBook(Long idBook, String name, String description, String linkToSell) {
         this.idBook = idBook;
         this.name = name;
         this.description = description;
