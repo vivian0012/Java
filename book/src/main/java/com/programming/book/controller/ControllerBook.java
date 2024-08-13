@@ -41,8 +41,8 @@ public class ControllerBook {
 
     // UPDATE OBJ
     @PutMapping("/book/updateObj/{id}")
-    public ResponseEntity<ModelBook> update(@RequestBody ModelBook obj, @PathVariable Long id){
-        ModelBook modelBook = serviceBook.updateObj(obj, id);
+    public ResponseEntity<ModelBook> update(@RequestBody ModelBook objBook, @PathVariable Long id){
+        ModelBook modelBook = serviceBook.updateObj(objBook, id);
         return ResponseEntity.ok().body(modelBook);
     }
 
