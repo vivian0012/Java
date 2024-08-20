@@ -1,7 +1,10 @@
 package com.programming.category.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,8 @@ import java.util.List;
 @Table(name = "tb_category")
 public class ModelCategory implements Serializable {
 
-    private static final long SerialUIDVersion = 1L;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +22,9 @@ public class ModelCategory implements Serializable {
 
     private String nameCategory;
 
-    private List<AuxiliaryList> auxiliaryListList = new ArrayList<>();
+    @JsonProperty("auxiliaryListList")
+    @OneToMany(mappedBy = "modelCategories", cascade = CascadeType.ALL)
+    private List<AuxiliaryList> auxiliaryListList = new ArrayList<>(); // ID: 1
 
     public ModelCategory() {}
 

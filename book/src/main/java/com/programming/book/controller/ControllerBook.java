@@ -26,7 +26,7 @@ public class ControllerBook {
     }
 
     // READ BY ID
-        @GetMapping("/book/readById/{id}")
+    @GetMapping("/book/readById/{id}")
     public ResponseEntity<ModelBook> readId(@PathVariable Long id){
         ModelBook idModelBook = serviceBook.readById(id);
         return ResponseEntity.ok().body(idModelBook);
