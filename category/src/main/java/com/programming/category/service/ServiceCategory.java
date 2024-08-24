@@ -6,7 +6,10 @@ import com.programming.category.model.AuxiliaryList;
 import com.programming.category.model.ModelCategory;
 import com.programming.category.repository.RepositoryCategory;
 import org.springframework.beans.factory.annotation.Autowired;
- import org.springframework.stereotype.Service;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -22,14 +25,14 @@ public class ServiceCategory {
     // IMPLEMENTS WEB CLIENT CONSTRUCTOR
     private final WebClient webClientConfig;
 
-    public ServiceCategory(WebClient.Builder webClientBuilder) {
+    public ServiceCategory(@LoadBalanced WebClient.Builder webClientBuilder) {
         this.webClientConfig = webClientBuilder.build();
     }
 
     Mono<ModelBook> modelCategoryMono(Long idBook){
         return webClientConfig
                 .get()
-                .uri("http://localhost:2000/api/book/readById/" + idBook)
+                .uri("http://book/api/book/readById/" + idBook)
                 .retrieve()
                 .bodyToMono(ModelBook.class);
     }

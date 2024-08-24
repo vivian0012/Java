@@ -6,6 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CategoryApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CategoryApplication.class);
+        SpringApplication.run(CategoryApplication.class, args);
     }
 }
