@@ -32,6 +32,22 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
-</dependencies>
+        <!-- DEPENDÊNCIA PARA O FUNCIONAMENTO DO OAUTH2 -->
+
+        <!--Essa dependência cria o Resource Server que protege suas APIs utilizando OAuth2-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+
+        <!--Esta dependência traz para o seu projeto o Spring Security, que é um módulo do
+        Spring Framework voltado para a segurança da aplicação-->
+        <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-security</artifactId>
+       </dependency>
+        <!-- É NECESSÁRIO O USO DOS DOIS PARA CONSEGUI USAR O KEYCLOAK-->
+
+    </dependencies>
 
 </project>

@@ -32,7 +32,7 @@ public class ServiceCategory {
     Mono<ModelBook> modelCategoryMono(Long idBook){
         return webClientConfig
                 .get()
-                .uri("http://book/api/book/readById/" + idBook)
+                .uri("http://book-service/api/book/readById/" + idBook)
                 .retrieve()
                 .bodyToMono(ModelBook.class);
     }
